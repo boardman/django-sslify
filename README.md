@@ -32,6 +32,18 @@ middleware class listed, as this will ensure that if a user makes an unsecure
 request (over HTTP), they will be redirected to HTTPs before any actual
 processing happens.
 
+### Exclusions
+
+SSLIFY_EXCLUSIONS
+
+Paths can be excluded from the SSLification by adding relative paths to SSLIFY_EXCLUSIONS as below:
+
+``` python
+SSLIFY_EXCLUSIONS = (
+    '/relative/path/to/resource/',
+    # ...
+)
+```
 
 ## Notes
 

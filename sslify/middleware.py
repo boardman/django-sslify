@@ -18,6 +18,10 @@ class SSLifyMiddleware(object):
         if getattr(settings, 'SSLIFY_DISABLE', False):
             return None
 
+        # is resource in the exclusion list?
+        if request.path in getattr(settings, 'SSLIFY_EXCLUSIONS', []):
+            return None
+
         # proceed as normal
         if not any((settings.DEBUG, request.is_secure())):
             url = request.build_absolute_uri(request.get_full_path())
